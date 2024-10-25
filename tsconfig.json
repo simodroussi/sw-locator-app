@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,9 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["jest", "node"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.ts"],
+  "exclude": ["node_modules"]
 }

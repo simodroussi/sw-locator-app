@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import LocationsMap from './components/LocationsMap';
+import { useAppDispatch } from './hooks';
+import { fetchEntities } from './store/slices/entitiesSlice';
+import { EntityList } from './components/EntityList';
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchEntities());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+      <h1 className='title'>Star Wars Locator</h1>
+      <div className='locations-map'>
+        <LocationsMap />
+        <EntityList />
+      </div>
     </div>
   );
 }
