@@ -111,7 +111,7 @@ const LocationsMap = () => {
             <h5>
               {hoveredEntity.name}, {hoveredEntity.homeworld}
             </h5>
-            <img src={hoveredEntity.image} className={styles.entityImage} />
+            <img alt="entity" src={hoveredEntity.image} className={styles.entityImage} />
           </Popup>
         )}
         {lat && long && (
